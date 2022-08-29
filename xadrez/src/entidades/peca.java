@@ -1,6 +1,6 @@
 package entidades;
 
-import entidades.position;
+
 
 public class peca {
     protected position posicao;
@@ -14,7 +14,7 @@ public class peca {
     protected tabuleiro getTab() {
         return tab;
     }
-    
+
 
 
 }

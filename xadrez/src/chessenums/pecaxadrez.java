@@ -2,19 +2,19 @@ package chessenums;
 
 import entidades.peca;
 import entidades.tabuleiro;
-import exception.excp;
+import chessenums.enums;
 
 
 
 public class pecaxadrez extends peca{
-    private excp cor;
+    private enums cor;
 
-    public pecaxadrez(tabuleiro tab, excp cor) {
+    public pecaxadrez(tabuleiro tab, enums cor) {
         super(tab);
         this.cor = cor;
     }
 
-    public excp getCor() {
+    public enums getCor() {
         return cor;
     }
     

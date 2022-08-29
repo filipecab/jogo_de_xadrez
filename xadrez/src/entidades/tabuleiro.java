@@ -28,5 +28,10 @@ public class tabuleiro {
     public peca pecas(position pos){
             return pecas[pos.getLinha()][pos.getColuna()];
     }
-    
+    public void Inserepeca(peca p,position ps){
+        pecas[ps.getLinha()][ps.getColuna()]=p;
+        p.posicao=ps;
+    }
+    //public peca removePeca(position p){//
+
 }

@@ -1,6 +1,9 @@
 package chessenums;
 
+import entidades.position;
 import entidades.tabuleiro;
+import tipopeca.king;
+import tipopeca.torre;
 
 public class partida {
     private tabuleiro tab;
@@ -8,6 +11,7 @@ public class partida {
 
     public partida(){
         tab=new tabuleiro(8, 8);
+        iniciarpartida();
     }
     public pecaxadrez[][] getPecas(){
         pecaxadrez[][] mat=new pecaxadrez[tab.getLinhas()][tab.getColunas()];
@@ -17,5 +21,10 @@ public class partida {
             }
         }
         return mat;
+ 
+    }
+    private void iniciarpartida(){
+        tab.Inserepeca(new torre(tab, enums.BLACK),new position(2,1));
+        tab.Inserepeca(new king(tab,enums.BLACK), new position(0,4));
     }
 }

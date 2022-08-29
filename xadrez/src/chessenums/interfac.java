@@ -1,5 +1,5 @@
 package chessenums;
-import chessenums.pecaxadrez;
+
 
 public class interfac {
     
