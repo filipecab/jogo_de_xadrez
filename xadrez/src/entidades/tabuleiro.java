@@ -22,6 +22,11 @@ public class tabuleiro {
         this.colunas = colunas;
     }
     
-    
+    public peca pecas(int linha, int coluna){
+        return pecas[linha][coluna];
+    }
+    public peca pecas(position pos){
+            return pecas[pos.getLinha()][pos.getColuna()];
+    }
     
 }
