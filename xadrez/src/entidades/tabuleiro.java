@@ -1,6 +1,6 @@
 package entidades;
 
-import javax.swing.text.Position;
+
 
 import exception.excp_tab;
 

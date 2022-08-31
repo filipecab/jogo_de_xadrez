@@ -1,6 +1,6 @@
 package chessenums;
 
-import entidades.position;
+
 import entidades.tabuleiro;
 import tipopeca.bispo;
 import tipopeca.cavalo;
@@ -27,40 +27,44 @@ public class partida {
         return mat;
  
     }
-    private void iniciarpartida(){
-        tab.Inserepeca(new torre(tab, enums.BLACK),new position(0,0));
-        tab.Inserepeca(new cavalo(tab, enums.BLACK),new position(0,1));
-        tab.Inserepeca(new bispo(tab, enums.BLACK), new position(0,2));
-        tab.Inserepeca(new king(tab,enums.BLACK), new position(0,3));
-        tab.Inserepeca(new rainha(tab, enums.BLACK), new position(0,4));
-        tab.Inserepeca(new bispo(tab, enums.BLACK),new position(0,5));
-        tab.Inserepeca(new cavalo(tab, enums.BLACK), new position(0,6));
-        tab.Inserepeca(new torre(tab, enums.BLACK), new position(0,7));
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,0));              //peças pretas//
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,1));
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,2));
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,3));
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,4));
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,5));
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,6));
-        tab.Inserepeca(new peao(tab, enums.BLACK), new position(1,7));
+    private void novaPosPeca(char coluna, int linha, pecaxadrez peca){
+        tab.Inserepeca(peca, new chessPosicao(coluna, linha).toPosition());
+    }
 
-        tab.Inserepeca(new torre(tab, enums.WHITE), new position(7,0));
-        tab.Inserepeca(new cavalo(tab, enums.WHITE), new position(7,1));
-        tab.Inserepeca(new bispo(tab, enums.WHITE), new position(7,2));
-        tab.Inserepeca(new king(tab,enums.WHITE), new position(7,3));
-        tab.Inserepeca(new rainha(tab, enums.WHITE), new position(7,4));
-        tab.Inserepeca(new bispo(tab, enums.WHITE),new position(7,5));
-        tab.Inserepeca(new cavalo(tab, enums.WHITE), new position(7,6));
-        tab.Inserepeca(new torre(tab, enums.WHITE), new position(7,7));
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,0));              //peças brancas//
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,1));
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,2));
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,3));
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,4));
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,5));
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,6));
-        tab.Inserepeca(new peao(tab, enums.WHITE), new position(6,7));
+    private void iniciarpartida(){
+        novaPosPeca('A',0,new torre(tab, enums.BLACK));
+        novaPosPeca('B',0,new cavalo(tab, enums.BLACK));
+        novaPosPeca('C',0,new bispo(tab, enums.BLACK));
+        novaPosPeca('D',0,new king(tab,enums.BLACK));
+        novaPosPeca('E',0,new rainha(tab, enums.BLACK));
+        novaPosPeca('F',0,new bispo(tab, enums.BLACK));
+        novaPosPeca('G',0,new cavalo(tab, enums.BLACK));
+        novaPosPeca('H',0,new torre(tab, enums.BLACK));
+        novaPosPeca('A',1,new peao(tab, enums.BLACK));              //peças pretas//
+        novaPosPeca('B',1,new peao(tab, enums.BLACK));
+        novaPosPeca('C',1,new peao(tab, enums.BLACK));
+        novaPosPeca('D',1,new peao(tab, enums.BLACK));
+        novaPosPeca('E',1,new peao(tab, enums.BLACK));
+        novaPosPeca('F',1,new peao(tab, enums.BLACK));
+        novaPosPeca('G',1,new peao(tab, enums.BLACK));
+        novaPosPeca('H',1,new peao(tab, enums.BLACK));
+
+        novaPosPeca('A',7,new torre(tab, enums.WHITE));
+        novaPosPeca('B',7,new cavalo(tab, enums.WHITE));
+        novaPosPeca('C',7,new bispo(tab, enums.WHITE));
+        novaPosPeca('D',7,new king(tab,enums.WHITE));
+        novaPosPeca('E',7,new rainha(tab, enums.WHITE));
+        novaPosPeca('F',7,new bispo(tab, enums.WHITE));
+        novaPosPeca('G',7,new cavalo(tab, enums.WHITE));
+        novaPosPeca('H',7,new torre(tab, enums.WHITE));
+        novaPosPeca('A',6,new peao(tab, enums.WHITE));              //peças pretas//
+        novaPosPeca('B',6,new peao(tab, enums.WHITE));
+        novaPosPeca('C',6,new peao(tab, enums.WHITE));
+        novaPosPeca('D',6,new peao(tab, enums.WHITE));
+        novaPosPeca('E',6,new peao(tab, enums.WHITE));
+        novaPosPeca('F',6,new peao(tab, enums.WHITE));
+        novaPosPeca('G',6,new peao(tab, enums.WHITE));
+        novaPosPeca('H',6,new peao(tab, enums.WHITE));
 
 
 
