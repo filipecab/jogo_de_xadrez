@@ -1,9 +1,9 @@
 package tipopeca;
 
+import entidades.tabuleiro;
 import chessenums.enums;
 import chessenums.pecaxadrez;
-import entidades.tabuleiro;
-import exception.excp;
+
 
 public class torre extends pecaxadrez{
 
@@ -15,7 +15,7 @@ public class torre extends pecaxadrez{
 
     @Override
     public String toString(){
-        return "R";
+        return "T";
     }
     
     

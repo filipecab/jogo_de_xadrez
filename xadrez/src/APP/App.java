@@ -1,7 +1,7 @@
 package APP;
 
-import chessenums.partida;
 import chessenums.interfac;
+import chessenums.partida;
 
 
 public class App {

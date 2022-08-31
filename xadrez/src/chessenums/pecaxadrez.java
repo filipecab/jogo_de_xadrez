@@ -2,7 +2,7 @@ package chessenums;
 
 import entidades.peca;
 import entidades.tabuleiro;
-import chessenums.enums;
+
 
 
 

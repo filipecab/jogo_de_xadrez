@@ -4,18 +4,13 @@ import entidades.tabuleiro;
 import chessenums.enums;
 import chessenums.pecaxadrez;
 
+public class cavalo extends pecaxadrez {
 
-public class king extends pecaxadrez {
-
-    public king(tabuleiro tab, enums cor) {
+    public cavalo(tabuleiro tab, enums cor) {
         super(tab, cor);
-        
     }
-
-    @Override
+    
     public String toString(){
-        return "K";
+        return "C";
     }
-    
-    
 }
