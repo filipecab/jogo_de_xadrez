@@ -3,7 +3,7 @@ package chessenums;
 import entidades.position;
 import exception.excp;
 
-public class chessPosicao {
+public  class chessPosicao {
     private char coluna;
     private int linha;
     public chessPosicao(char coluna, int linha) {

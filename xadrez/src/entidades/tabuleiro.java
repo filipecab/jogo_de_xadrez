@@ -58,6 +58,16 @@ public class tabuleiro {
         return peca1(p)!=null;
     }
 
-    //public peca removePeca(position p){//
+    public peca removePeca(position p){
+        if (!posicaoExist(p)){
+            throw new excp_tab("posição não existe");
+        }
+        if (peca1(p)==null){
+            return null;
+        }
+        peca aux = peca1(p);
+        pecas[p.getLinha()][p.getColuna()]=null;
+        return aux;
 
+    }
 }

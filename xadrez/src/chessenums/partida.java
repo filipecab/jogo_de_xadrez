@@ -1,13 +1,17 @@
 package chessenums;
 
 
+import entidades.peca;
+import entidades.position;
 import entidades.tabuleiro;
+import exception.excp;
 import tipopeca.bispo;
 import tipopeca.cavalo;
 import tipopeca.king;
 import tipopeca.peao;
 import tipopeca.rainha;
 import tipopeca.torre;
+
 
 public class partida {
     private tabuleiro tab;
@@ -27,9 +31,31 @@ public class partida {
         return mat;
  
     }
+    public pecaxadrez moverPecas(chessPosicao p, chessPosicao destino){
+        position ori=p.toPosition();
+        position des=destino.toPosition();
+        validarPosicao(ori);
+        peca capturapeca=mover(ori,des);
+        return (pecaxadrez)capturapeca;
+    }
+    private void validarPosicao(position ori){
+       if ( !tab.temPecaPos(ori)){
+        throw new excp("não existe peca na posição");
+       }
+    }
+    private peca mover(position ori, position des){
+        peca p=tab.removePeca(ori);
+        peca p1=tab.removePeca(des);
+        tab.Inserepeca(p, des);
+        return p1;
+        }
+
+
     private void novaPosPeca(char coluna, int linha, pecaxadrez peca){
         tab.Inserepeca(peca, new chessPosicao(coluna, linha).toPosition());
     }
+
+
 
     private void iniciarpartida(){
         novaPosPeca('A',0,new torre(tab, enums.BLACK));
