@@ -14,4 +14,10 @@ public class bispo extends pecaxadrez {
         return "B";
 
     }
+
+    @Override
+    public boolean[][] PossivelMovimento() {
+        boolean[][] m=new boolean[getTab().getLinhas()][getTab().getColunas()];
+        return m;
+    }
 }

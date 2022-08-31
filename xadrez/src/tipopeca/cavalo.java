@@ -13,4 +13,10 @@ public class cavalo extends pecaxadrez {
     public String toString(){
         return "C";
     }
+
+    @Override
+    public boolean[][] PossivelMovimento() {
+        boolean[][] m=new boolean[getTab().getLinhas()][getTab().getColunas()];
+        return m;
+    }
 }

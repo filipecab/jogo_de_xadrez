@@ -13,5 +13,11 @@ public class rainha extends pecaxadrez {
     public String toString(){
         return "R";
     }
+
+    @Override
+    public boolean[][] PossivelMovimento() {
+        boolean[][] m=new boolean[getTab().getLinhas()][getTab().getColunas()];
+        return m;
+    }
     
 }

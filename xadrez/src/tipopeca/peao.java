@@ -13,4 +13,10 @@ public class peao extends pecaxadrez {
     public String toString(){
         return "p";
     }
+
+    @Override
+    public boolean[][] PossivelMovimento() {
+        boolean[][] m=new boolean[getTab().getLinhas()][getTab().getColunas()];
+        return m;
+    }
 }

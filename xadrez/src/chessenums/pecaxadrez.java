@@ -6,7 +6,7 @@ import entidades.tabuleiro;
 
 
 
-public class pecaxadrez extends peca{
+public abstract class pecaxadrez extends peca{
     private enums cor;
 
     public pecaxadrez(tabuleiro tab, enums cor) {

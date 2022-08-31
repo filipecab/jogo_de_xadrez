@@ -42,6 +42,9 @@ public class partida {
        if ( !tab.temPecaPos(ori)){
         throw new excp("não existe peca na posição");
        }
+       if (!tab.peca1(ori).esteMovimentoPossivel()){
+            throw new excp("Não existe movimentos possiver na peça escolhida");
+       }
     }
     private peca mover(position ori, position des){
         peca p=tab.removePeca(ori);
