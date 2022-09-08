@@ -19,11 +19,19 @@ public class position{
         return linha;
     }
 
+    public void setLinha(int linha){
+        this.linha=linha;
+    }
+
 
     
 
     public int getColuna() {
         return coluna;
+    }
+
+    public void setColuna(int coluna){
+        this.coluna=coluna;
     }
 
 
@@ -36,6 +44,11 @@ public class position{
    @Override
    public String toString(){
     return linha+", "+coluna;
+   }
+
+   public void setValores(int linha, int coluna){
+        this.linha=linha;
+        this.coluna=coluna;
    }
 
     

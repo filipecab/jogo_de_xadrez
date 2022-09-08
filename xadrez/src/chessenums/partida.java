@@ -35,6 +35,7 @@ public class partida {
         position ori=p.toPosition();
         position des=destino.toPosition();
         validarPosicao(ori);
+        validarPosicaoDestino(ori,des);
         peca capturapeca=mover(ori,des);
         return (pecaxadrez)capturapeca;
     }
@@ -45,6 +46,11 @@ public class partida {
        if (!tab.peca1(ori).esteMovimentoPossivel()){
             throw new excp("Não existe movimentos possiver na peça escolhida");
        }
+    }
+    private void validarPosicaoDestino(position ori,position des){
+        if(!tab.peca1(ori).posMove(des)){
+            throw new excp("A peça escolhida não pode se mover para a posição escolhida");
+        }
     }
     private peca mover(position ori, position des){
         peca p=tab.removePeca(ori);
