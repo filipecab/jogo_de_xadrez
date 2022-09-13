@@ -22,6 +22,10 @@ public class App {
                 System.out.println();
                 System.out.print("Origem: ");
                 chessPosicao origem=interfac.leituraPosicao(sc);
+
+                boolean[][] possivelmov=part.possiveisMovimentos(origem);
+                interfac.clearScreen();
+                interfac.printab(part.getPecas(), possivelmov);
                 System.out.println();
                 System.out.print("Destino: ");
                 chessPosicao des=interfac.leituraPosicao(sc);

@@ -31,6 +31,13 @@ public class partida {
         return mat;
  
     }
+    public boolean[][] possiveisMovimentos(chessPosicao origem){
+        position p=origem.toPosition();
+        validarPosicao(p);
+        return tab.peca1(p).PossivelMovimento();
+    }
+
+
     public pecaxadrez moverPecas(chessPosicao p, chessPosicao destino){
         position ori=p.toPosition();
         position des=destino.toPosition();
