@@ -23,6 +23,7 @@ public class torre extends pecaxadrez{
     public boolean[][] PossivelMovimento() {
         boolean[][] m=new boolean[getTab().getLinhas()][getTab().getColunas()];
         position p= new position(0,0);
+        
         //verificando a parte de cima da peça
         p.setValores(posicao.getLinha()-1, posicao.getColuna());
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){

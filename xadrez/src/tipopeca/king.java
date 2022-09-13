@@ -3,6 +3,7 @@ package tipopeca;
 import entidades.tabuleiro;
 import chessenums.enums;
 import chessenums.pecaxadrez;
+import entidades.position;
 
 
 public class king extends pecaxadrez {
@@ -20,6 +21,23 @@ public class king extends pecaxadrez {
     @Override
     public boolean[][] PossivelMovimento() {
         boolean[][] m=new boolean[getTab().getLinhas()][getTab().getColunas()];
+        position p= new position(0,0);
+        p.setValores(posicao.getLinha()-1, posicao.getColuna());
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        p.setValores(posicao.getLinha(), posicao.getColuna()-1);
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        p.setValores(posicao.getLinha(), posicao.getColuna()+1);
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        p.setValores(posicao.getLinha()+1, posicao.getColuna());
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
 
         return m;
     }

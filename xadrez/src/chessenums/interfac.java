@@ -1,6 +1,6 @@
 package chessenums;
 
-import chessenums.chessPosicao;
+
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
