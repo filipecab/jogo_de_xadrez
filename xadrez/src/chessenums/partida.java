@@ -14,13 +14,27 @@ import tipopeca.torre;
 
 
 public class partida {
+    private int turno;
+    private enums player;
     private tabuleiro tab;
 
 
     public partida(){
         tab=new tabuleiro(8, 8);
+        turno=1;
+        player=enums.WHITE;
         iniciarpartida();
     }
+    public int getTurno(){
+        return turno;
+    }
+    public enums getPlayer(){
+        return player;
+    }
+
+   
+
+
     public pecaxadrez[][] getPecas(){
         pecaxadrez[][] mat=new pecaxadrez[tab.getLinhas()][tab.getColunas()];
         for (int i=0;i<tab.getLinhas();i++){
@@ -44,11 +58,15 @@ public class partida {
         validarPosicao(ori);
         validarPosicaoDestino(ori,des);
         peca capturapeca=mover(ori,des);
+        proximoTurno();
         return (pecaxadrez)capturapeca;
     }
     private void validarPosicao(position ori){
        if ( !tab.temPecaPos(ori)){
         throw new excp("não existe peca na posição");
+       }
+       if (player!= ((pecaxadrez)tab.peca1(ori)).getCor()){
+           throw new excp("essa peca é do seu adversário"); 
        }
        if (!tab.peca1(ori).esteMovimentoPossivel()){
             throw new excp("Não existe movimentos possiver na peça escolhida");
@@ -108,7 +126,11 @@ public class partida {
         novaPosPeca('G',6,new peao(tab, enums.WHITE));
         novaPosPeca('H',6,new peao(tab, enums.WHITE));
 
-
-
     }
+
+    private void proximoTurno(){
+        turno++;
+        player=(player==enums.WHITE?enums.BLACK:enums.WHITE);
+    }
+
 }
