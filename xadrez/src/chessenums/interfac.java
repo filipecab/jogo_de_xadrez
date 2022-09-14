@@ -57,13 +57,14 @@ public class interfac {
             for (int i=0;i<pecas.length;i++){
                 System.out.print(i+" ");
                 for (int j=0;j<pecas.length;j++){
-                    printpeca(pecas[i][j],false);
+                    printpeca(pecas[i][j],possiveisMovimentos[i][j]);
                 }
                 System.out.println();
             }
             System.out.println("  A B C D E F G H");
         }
         private static void printpeca(pecaxadrez peca, boolean background) {
+
             if (background) {
                 System.out.print(ANSI_BLUE_BACKGROUND);
             }

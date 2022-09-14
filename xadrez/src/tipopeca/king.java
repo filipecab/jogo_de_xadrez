@@ -26,18 +26,63 @@ public class king extends pecaxadrez {
         if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
         p.setValores(posicao.getLinha(), posicao.getColuna()-1);
         if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
             m[p.getLinha()][p.getColuna()]=true;
         }
         p.setValores(posicao.getLinha(), posicao.getColuna()+1);
         if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+
         p.setValores(posicao.getLinha()+1, posicao.getColuna());
         if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        p.setValores(posicao.getLinha()+1, posicao.getColuna()+1);
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        p.setValores(posicao.getLinha()+1, posicao.getColuna()-1);
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        p.setValores(posicao.getLinha()-1, posicao.getColuna()-1);
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+
+        p.setValores(posicao.getLinha()-1, posicao.getColuna()+1);
+        if(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+
+
+
 
         return m;
     }

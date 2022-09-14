@@ -26,11 +26,17 @@ public class bispo extends pecaxadrez {
             p.setLinha(p.getLinha()-1);
             p.setColuna(p.getColuna()+1);
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
         p.setValores(posicao.getLinha()-1, posicao.getColuna()-1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
             p.setLinha(p.getLinha()-1);
             p.setColuna(p.getColuna()-1);
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
         }
         p.setValores(posicao.getLinha()+1, posicao.getColuna()+1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
@@ -38,11 +44,17 @@ public class bispo extends pecaxadrez {
             p.setLinha(p.getLinha()+1);
             p.setColuna(p.getColuna()+1);
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
         p.setValores(posicao.getLinha()+1, posicao.getColuna()-1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
             p.setLinha(p.getLinha()+1);
             p.setColuna(p.getColuna()-1);
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
         }
         
         return m;
