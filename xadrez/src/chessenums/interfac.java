@@ -47,10 +47,10 @@ public class interfac {
             }
         }
 
-        public static void printPartida(partida p){
+        public static void printPartida(partida p,List<pecaxadrez> capt){
             printab(p.getPecas());
             System.out.println();
-            
+            printPecasCapturadas(capt);
             System.out.println();
             System.out.println("Turno: "+ p.getTurno());
             System.out.println("Aguardando jogador: "+p.getPlayer());

@@ -1,6 +1,8 @@
 package chessenums;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import entidades.peca;
 import entidades.position;
 import entidades.tabuleiro;
@@ -17,7 +19,8 @@ public class partida {
     private int turno;
     private enums player;
     private tabuleiro tab;
-
+    private List<peca> pecasNotab=new ArrayList<>();
+    private List<peca> pecasCapturadas=new ArrayList<>();
 
     public partida(){
         tab=new tabuleiro(8, 8);
@@ -81,12 +84,17 @@ public class partida {
         peca p=tab.removePeca(ori);
         peca p1=tab.removePeca(des);
         tab.Inserepeca(p, des);
+        if (p1!=null){
+            pecasNotab.remove(p1);
+            pecasCapturadas.add(p1);
+        }
         return p1;
         }
 
 
     private void novaPosPeca(char coluna, int linha, pecaxadrez peca){
         tab.Inserepeca(peca, new chessPosicao(coluna, linha).toPosition());
+        pecasNotab.add(peca);
     }
 
 
@@ -132,5 +140,7 @@ public class partida {
         turno++;
         player=(player==enums.WHITE?enums.BLACK:enums.WHITE);
     }
+
+
 
 }

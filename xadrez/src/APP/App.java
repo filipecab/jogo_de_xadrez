@@ -22,8 +22,8 @@ public class App {
         while (true){
             try{
                 interfac.clearScreen();
-                interfac.printPartida(part);
-                interfac.printPecasCapturadas(capturadas);
+                interfac.printPartida(part, capturadas);
+                
                 System.out.println();
                 System.out.print("Origem: ");
                 chessPosicao origem=interfac.leituraPosicao(sc);
