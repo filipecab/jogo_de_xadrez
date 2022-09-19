@@ -1,9 +1,13 @@
 package chessenums;
 
 
+import java.util.List;
+
+import java.util.Arrays;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class interfac {
@@ -45,6 +49,8 @@ public class interfac {
 
         public static void printPartida(partida p){
             printab(p.getPecas());
+            System.out.println();
+            
             System.out.println();
             System.out.println("Turno: "+ p.getTurno());
             System.out.println("Aguardando jogador: "+p.getPlayer());
@@ -89,6 +95,21 @@ public class interfac {
                 }
             }
             System.out.print(" ");
+        }
+
+        public static void printPecasCapturadas(List<pecaxadrez> capturadas){
+            List<pecaxadrez> branca=capturadas.stream().filter(x -> x.getCor()==enums.WHITE).collect(Collectors.toList());
+            List<pecaxadrez> preta=capturadas.stream().filter(x -> x.getCor()==enums.BLACK).collect(Collectors.toList());
+            System.out.println("Peças capturadas: ");
+            System.out.println("brancas: ");
+            System.out.println(ANSI_WHITE);
+            System.out.println(Arrays.toString(branca.toArray()));
+            System.out.println(ANSI_RESET);
+            System.out.println("pretas: ");
+            System.out.println(ANSI_YELLOW);
+            System.out.println(Arrays.toString(preta.toArray()));
+            System.out.println(ANSI_RESET);
+
         }
     
 }
