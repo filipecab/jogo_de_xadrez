@@ -19,7 +19,7 @@ public class App {
 
         partida part=new partida();
         List<pecaxadrez> capturadas=new ArrayList<>();
-        while (true){
+        while (!part.getCheckMate()){
             try{
                 interfac.clearScreen();
                 interfac.printPartida(part, capturadas);
@@ -52,5 +52,7 @@ public class App {
                 sc.nextLine();
             }
         }
+        interfac.clearScreen();
+        interfac.printPartida(part, capturadas);
     }
 }

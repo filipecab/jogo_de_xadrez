@@ -1,6 +1,7 @@
 package chessenums;
 
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +23,7 @@ public class partida {
     private enums player;
     private tabuleiro tab;
     private boolean check;
+    private boolean checkMate;
 
     private List<peca> pecasNotab=new ArrayList<>();
     private List<peca> pecasCapturadas=new ArrayList<>();
@@ -42,6 +44,9 @@ public class partida {
 
    public boolean getCheck(){
         return check;
+   }
+   public boolean getCheckMate(){
+    return checkMate;
    }
 
 
@@ -73,7 +78,12 @@ public class partida {
             throw new excp("voce não pode se alto colocar em check");
         }
         check=(testeCheck(oponente(player)))? true : false;
-        proximoTurno();
+
+        if (TestCheckMate(oponente(player))){
+            checkMate = true;
+        }
+        else proximoTurno();
+
         return (pecaxadrez)capturapeca;
     }
 
@@ -137,12 +147,37 @@ public class partida {
         }
         return false;
     }
+    private boolean TestCheckMate(enums cor){
+        if(!testeCheck(cor)){
+            return false;
+        } 
+        List<peca> list=pecasNotab.stream().filter(x -> ((pecaxadrez)x).getCor()==cor).collect(Collectors.toList());
+        for (peca p: list){
+            boolean[][] mat=p.PossivelMovimento();
+            for (int i=0;i<tab.getLinhas();i++){
+                for (int j=0;i<tab.getColunas();j++){
+                    if (mat[i][j]){
+                        position ori=((pecaxadrez)p).getChessPosicao().toPosition();
+                        position destino=new position(i,j);
+                        peca capturarPeca=mover(ori,destino);
+                        boolean aux=testeCheck(cor);
+                        desfazerMovimento(ori, destino, capturarPeca);
+                        if (!aux){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
 
 
     private void novaPosPeca(char coluna, int linha, pecaxadrez peca){
         tab.Inserepeca(peca, new chessPosicao(coluna, linha).toPosition());
         pecasNotab.add(peca);
     }
+    
 
 
 

@@ -1,5 +1,5 @@
 package chessenums;
-import chessenums.partida;
+
 
 import java.util.List;
 
@@ -56,11 +56,16 @@ public class interfac {
             printPecasCapturadas(capt);
             System.out.println();
             System.out.println("Turno: "+ p.getTurno());
-            System.out.println("Aguardando jogador: "+p.getPlayer());
-            if (p.getCheck()){
-                System.out.println("CHECK");
+            if (!p.getCheckMate()){
+                System.out.println("Aguardando jogador: "+p.getPlayer());
+                if (p.getCheck()){
+                    System.out.println("CHECK");
+                }
             }
-            
+            else{ 
+                System.out.println("check mate");
+                System.out.println("vencedor "+ p.getPlayer());
+            }
 
         }
 
