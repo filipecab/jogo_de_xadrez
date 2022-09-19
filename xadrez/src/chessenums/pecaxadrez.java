@@ -23,6 +23,9 @@ public abstract class pecaxadrez extends peca{
         pecaxadrez pe= (pecaxadrez)getTab().peca1(p);
         return pe!= null && pe.getCor()!=cor;
     }
+    public  chessPosicao getChessPosicao(){
+        return chessPosicao.umaPosicao(posicao);
+    }
     
     
 

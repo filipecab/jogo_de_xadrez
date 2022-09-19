@@ -3,6 +3,8 @@ package chessenums;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import entidades.peca;
 import entidades.position;
 import entidades.tabuleiro;
@@ -19,12 +21,15 @@ public class partida {
     private int turno;
     private enums player;
     private tabuleiro tab;
+    private boolean check;
+
     private List<peca> pecasNotab=new ArrayList<>();
     private List<peca> pecasCapturadas=new ArrayList<>();
 
     public partida(){
         tab=new tabuleiro(8, 8);
         turno=1;
+        check=false;
         player=enums.WHITE;
         iniciarpartida();
     }
@@ -35,7 +40,9 @@ public class partida {
         return player;
     }
 
-   
+   public boolean getCheck(){
+        return check;
+   }
 
 
     public pecaxadrez[][] getPecas(){
@@ -61,9 +68,15 @@ public class partida {
         validarPosicao(ori);
         validarPosicaoDestino(ori,des);
         peca capturapeca=mover(ori,des);
+        if (testeCheck(player)){
+            desfazerMovimento(ori, des, capturapeca);
+            throw new excp("voce não pode se alto colocar em check");
+        }
+        check=(testeCheck(oponente(player)))? true : false;
         proximoTurno();
         return (pecaxadrez)capturapeca;
     }
+
     private void validarPosicao(position ori){
        if ( !tab.temPecaPos(ori)){
         throw new excp("não existe peca na posição");
@@ -90,6 +103,40 @@ public class partida {
         }
         return p1;
         }
+
+    private void desfazerMovimento(position ori, position des, peca capturada){
+        peca p=tab.removePeca(des);
+        tab.Inserepeca(p, ori);
+        if (capturada!=null){
+            tab.Inserepeca(capturada, des);
+            pecasCapturadas.remove(capturada);
+            pecasNotab.add(capturada);
+        }
+    }
+    private enums oponente(enums cor){
+        return  (cor ==enums.WHITE) ? enums.BLACK : enums.WHITE;
+    }
+
+    private pecaxadrez king(enums cor){
+        List<peca> list=pecasNotab.stream().filter(x -> ((pecaxadrez)x).getCor()== cor).collect(Collectors.toList());
+        for (peca p: list){
+            if (p instanceof king){
+                return (pecaxadrez)p;
+            }
+        }
+        throw new IllegalStateException("não existe rei dessa cor");
+    }
+    private boolean testeCheck(enums cor){
+        position Posicaoking=king(cor).getChessPosicao().toPosition();
+        List<peca> pecaOponente=pecasNotab.stream().filter(x -> ((pecaxadrez)x).getCor()== oponente(cor)).collect(Collectors.toList());
+        for (peca p: pecaOponente){
+                boolean[] [] mat = p.PossivelMovimento();
+                if (mat[Posicaoking.getLinha()][Posicaoking.getColuna()]){
+                   return true;  
+                }
+        }
+        return false;
+    }
 
 
     private void novaPosPeca(char coluna, int linha, pecaxadrez peca){

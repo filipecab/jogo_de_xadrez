@@ -1,5 +1,5 @@
 package chessenums;
-
+import chessenums.partida;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 
 public class interfac {
+       
+
         public static final String ANSI_RESET = "\u001B[0m";
         public static final String ANSI_BLACK = "\u001B[30m";
         public static final String ANSI_RED = "\u001B[31m";
@@ -46,6 +48,7 @@ public class interfac {
                 throw new InputMismatchException("erro lendo posição de xadrez");
             }
         }
+        
 
         public static void printPartida(partida p,List<pecaxadrez> capt){
             printab(p.getPecas());
@@ -54,6 +57,9 @@ public class interfac {
             System.out.println();
             System.out.println("Turno: "+ p.getTurno());
             System.out.println("Aguardando jogador: "+p.getPlayer());
+            if (p.getCheck()){
+                System.out.println("CHECK");
+            }
             
 
         }
