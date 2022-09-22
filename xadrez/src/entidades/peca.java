@@ -9,6 +9,7 @@ public abstract class peca {
     
     public peca (tabuleiro tab){
         this.tab=tab;
+        posicao=null;
     }
 
     protected tabuleiro getTab() {
@@ -16,6 +17,7 @@ public abstract class peca {
     }
 
     public abstract boolean[][] PossivelMovimento();
+
     public boolean posMove(position p){
         return PossivelMovimento()[p.getLinha()][p.getColuna()];
     }

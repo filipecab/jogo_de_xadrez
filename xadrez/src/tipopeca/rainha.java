@@ -28,6 +28,7 @@ public class rainha extends pecaxadrez {
         if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
             m[p.getLinha()][p.getColuna()]=true;
         }
+
         //verificando a parte esquerda da peça
         p.setValores(posicao.getLinha(), posicao.getColuna()-1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
@@ -52,29 +53,40 @@ public class rainha extends pecaxadrez {
             m[p.getLinha()][p.getColuna()]=true;
             p.setLinha(p.getLinha()+1);
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+
         p.setValores(posicao.getLinha()+1, posicao.getColuna()+1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()+1);
-            p.setColuna(p.getColuna()+1);
+           p.setValores(p.getLinha()+1, p.getColuna()+1);
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+
         p.setValores(posicao.getLinha()-1, posicao.getColuna()-1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()-1);
-            p.setColuna(p.getColuna()-1);
+            p.setValores(p.getLinha()-1, p.getColuna()-1);
         }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
+        }
+
         p.setValores(posicao.getLinha()+1, posicao.getColuna()-1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()+1);
-            p.setColuna(p.getColuna()-1);
+            p.setValores(p.getLinha()+1, p.getColuna()-1);
+        }
+        if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
+            m[p.getLinha()][p.getColuna()]=true;
         }
         p.setValores(posicao.getLinha()-1, posicao.getColuna()+1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()-1);
-            p.setColuna(p.getColuna()+1);
+            p.setValores(p.getLinha()-1, p.getColuna()+1);
         }
         if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
             m[p.getLinha()][p.getColuna()]=true;

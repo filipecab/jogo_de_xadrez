@@ -16,12 +16,13 @@ import exception.excp;
 public class App {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-
+        
         partida part=new partida();
         List<pecaxadrez> capturadas=new ArrayList<>();
         while (!part.getCheckMate()){
             try{
                 interfac.clearScreen();
+               
                 interfac.printPartida(part, capturadas);
                 
                 System.out.println();
@@ -40,6 +41,16 @@ public class App {
                 if (capturar!=null){
                     capturadas.add(capturar);
                 }
+                if (part.getPromovida()!=null){
+                    System.out.print("entre com uma peca (B/C/R/T): ");
+                    String tipo=sc.nextLine().toUpperCase();
+                    while(!tipo.equals("B")&&!tipo.equals("N")&&!tipo.equals("R")&!tipo.equals("Q")){
+                        System.out.println("valor invalido! Escolha um (B/C/R/T)");
+                        tipo=sc.nextLine().toUpperCase();
+                    }
+                    part.substituida(tipo);
+                    
+                }
             
             }
             catch(excp e){
@@ -52,7 +63,8 @@ public class App {
                 sc.nextLine();
             }
         }
-        interfac.clearScreen();
-        interfac.printPartida(part, capturadas);
+       interfac.clearScreen();
+       interfac.printPartida(part, capturadas);;
+       
     }
 }

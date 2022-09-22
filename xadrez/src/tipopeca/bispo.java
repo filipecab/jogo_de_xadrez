@@ -10,7 +10,7 @@ public class bispo extends pecaxadrez {
     public bispo(tabuleiro tab, enums cor) {
         super(tab, cor);
     }
-    
+    @Override
     public String toString(){
         return "B";
 
@@ -23,8 +23,7 @@ public class bispo extends pecaxadrez {
         p.setValores(posicao.getLinha()-1, posicao.getColuna()+1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()-1);
-            p.setColuna(p.getColuna()+1);
+            p.setValores(p.getLinha()-1, p.getColuna()+1);
         }
         if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
             m[p.getLinha()][p.getColuna()]=true;
@@ -32,8 +31,7 @@ public class bispo extends pecaxadrez {
         p.setValores(posicao.getLinha()-1, posicao.getColuna()-1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()-1);
-            p.setColuna(p.getColuna()-1);
+            p.setValores(p.getLinha()-1, p.getColuna()-1);
         }
         if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
             m[p.getLinha()][p.getColuna()]=true;
@@ -41,8 +39,7 @@ public class bispo extends pecaxadrez {
         p.setValores(posicao.getLinha()+1, posicao.getColuna()+1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()+1);
-            p.setColuna(p.getColuna()+1);
+            p.setValores(p.getLinha()+1, p.getColuna()+1);
         }
         if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
             m[p.getLinha()][p.getColuna()]=true;
@@ -50,8 +47,7 @@ public class bispo extends pecaxadrez {
         p.setValores(posicao.getLinha()+1, posicao.getColuna()-1);
         while(getTab().posicaoExist(p)&& !getTab().temPecaPos(p)){
             m[p.getLinha()][p.getColuna()]=true;
-            p.setLinha(p.getLinha()+1);
-            p.setColuna(p.getColuna()-1);
+            p.setValores(p.getLinha()+1, p.getColuna()-1);
         }
         if (getTab().posicaoExist(p)&& posicaoTemOpenente(p)){
             m[p.getLinha()][p.getColuna()]=true;

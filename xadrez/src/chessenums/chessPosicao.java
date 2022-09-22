@@ -7,7 +7,7 @@ public  class chessPosicao {
     private char coluna;
     private int linha;
     public chessPosicao(char coluna, int linha) {
-        if (coluna < 'A'||coluna>'H'||linha<0||linha>7 ){
+        if (coluna <'a'||coluna>'h'||linha<1||linha>8 ){
             throw new excp("linha ou coluna incorreta");
         }      
         this.coluna = coluna;
@@ -22,10 +22,10 @@ public  class chessPosicao {
     }
 
     protected position toPosition(){
-        return new position(linha,coluna-'A');
+        return new position(8-linha,coluna-'a');
     }
     protected static chessPosicao umaPosicao(position p){
-        return new chessPosicao((char)('A'-p.getColuna()), p.getLinha());
+        return new chessPosicao((char)('a'+p.getColuna()),8- p.getLinha());
     }
     @Override
     public String toString(){

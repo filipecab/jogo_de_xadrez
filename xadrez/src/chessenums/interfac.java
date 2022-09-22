@@ -53,41 +53,41 @@ public class interfac {
         public static void printPartida(partida p,List<pecaxadrez> capt){
             printab(p.getPecas());
             System.out.println();
-            printPecasCapturadas(capt);
+            printPecasCapturadas(capt); 
             System.out.println();
             System.out.println("Turno: "+ p.getTurno());
             if (!p.getCheckMate()){
                 System.out.println("Aguardando jogador: "+p.getPlayer());
                 if (p.getCheck()){
                     System.out.println("CHECK");
-                }
-            }
-            else{ 
-                System.out.println("check mate");
-                System.out.println("vencedor "+ p.getPlayer());
-            }
+                    }
+                     }
+                  else{ 
+                    System.out.println("check mate");
+                    System.out.println("vencedor "+ p.getPlayer());
+                } 
 
         }
 
         public static void printab(pecaxadrez[][] pecas){
             for (int i=0;i<pecas.length;i++){
-                System.out.print(i+" ");
+                System.out.print((8-i)+" ");
                 for (int j=0;j<pecas.length;j++){
                     printpeca(pecas[i][j],false);
                 }
                 System.out.println();
             }
-            System.out.println("  A B C D E F G H");
+            System.out.println("  a b c d e f g h");
         }
         public static void printab(pecaxadrez[][] pecas, boolean[][] possiveisMovimentos){
             for (int i=0;i<pecas.length;i++){
-                System.out.print(i+" ");
+                System.out.print((8-i)+" ");
                 for (int j=0;j<pecas.length;j++){
                     printpeca(pecas[i][j],possiveisMovimentos[i][j]);
                 }
                 System.out.println();
             }
-            System.out.println("  A B C D E F G H");
+            System.out.println("  a b c d e f g h");
         }
         private static void printpeca(pecaxadrez peca, boolean background) {
 
@@ -108,7 +108,7 @@ public class interfac {
             System.out.print(" ");
         }
 
-        public static void printPecasCapturadas(List<pecaxadrez> capturadas){
+       public static void printPecasCapturadas(List<pecaxadrez> capturadas){
             List<pecaxadrez> branca=capturadas.stream().filter(x -> x.getCor()==enums.WHITE).collect(Collectors.toList());
             List<pecaxadrez> preta=capturadas.stream().filter(x -> x.getCor()==enums.BLACK).collect(Collectors.toList());
             System.out.println("Peças capturadas: ");
@@ -121,6 +121,6 @@ public class interfac {
             System.out.println(Arrays.toString(preta.toArray()));
             System.out.println(ANSI_RESET);
 
-        }
+        } 
     
 }

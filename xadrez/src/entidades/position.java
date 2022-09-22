@@ -5,8 +5,7 @@ public class position{
     private int coluna;
 
     
-    public position() {
-    }
+    
 
 
     public position(int linha, int coluna) {
@@ -34,22 +33,18 @@ public class position{
         this.coluna=coluna;
     }
 
-
-   public void setValues(int linha, int coluna){
+    public void setValores(int linha, int coluna){
         this.linha=linha;
         this.coluna=coluna;
-
    }
+   
 
    @Override
    public String toString(){
     return linha+", "+coluna;
    }
 
-   public void setValores(int linha, int coluna){
-        this.linha=linha;
-        this.coluna=coluna;
-   }
+   
 
     
 
